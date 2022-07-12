@@ -1,6 +1,7 @@
 package ru.netology;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 
 public class GameStoreTest {
@@ -19,11 +20,12 @@ public class GameStoreTest {
     public void shouldAddOnePlayer() {
         GameStore store = new GameStore();
         store.addPlayTime("Petr", 5);
-        String  expected = "Petr";
+        String expected = "Petr";
         String actual = store.getMostPlayer();
         assertEquals(expected, actual);
 
- }
+    }
+
     @Test
     public void shouldAddTwoPlayerAndAndReturnBestPlayer() {
         GameStore store = new GameStore();
@@ -44,6 +46,7 @@ public class GameStoreTest {
         String actual = store.getMostPlayer();
         assertEquals(expected, actual);
     }
+
     @Test
     public void shouldReturnNull() {
         GameStore store = new GameStore();
@@ -54,7 +57,7 @@ public class GameStoreTest {
     }
 
     @Test
-    public void shouldCheckBorderOfTime() {
+    public void shouldCheckUnderBorderOfTime() {
         GameStore store = new GameStore();
         store.addPlayTime("Petr", -2);
 
@@ -74,16 +77,36 @@ public class GameStoreTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void shouldRegisteredTimeBiggerNumbers() {
+        GameStore store = new GameStore();
+        store.addPlayTime("Petr", 999999999);
+        store.addPlayTime("Petr", 4);
+        String expected = "Petr";
+        String actual = store.getMostPlayer();
+        assertEquals(expected, actual);
 
+    }
 
+    @Test
+    public void shouldRegisteredTimeAndSumAllTimeOfPlayerLowBorder() {
+        GameStore store = new GameStore();
+        store.addPlayTime("Petr", 0);
+        store.addPlayTime("Petr", 2);
+        String expected = "Petr";
+        String actual = store.getMostPlayer();
+        assertEquals(expected, actual);
 
+    }
+    @Test
+    public void shouldCheckUnderBorderOfTime2() {
+        GameStore store = new GameStore();
+        store.addPlayTime("Petr", 1);
 
-
-
-
-
-
-
+        String expected = "Petr";
+        String actual = store.getMostPlayer();
+        assertEquals(expected, actual);
+    }
 
 
 }
