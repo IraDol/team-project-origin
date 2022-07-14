@@ -65,7 +65,7 @@ public class PlayerTest {
         player.play(game, 3);
         player.play(game2, 1);
 
-        Game expected = player.mostPlayerByGenre("Аркады");
+        String expected = player.mostPlayerByGenre("Аркады");
         String actual = game.getTitle();
 
         assertEquals(expected, actual);
@@ -82,7 +82,7 @@ public class PlayerTest {
         player.play(game, 3);
         player.play(game2, 1);
 
-        Game expected = player.mostPlayerByGenre("Танчики");
+        String expected = player.mostPlayerByGenre("Танчики");
         String actual = game.getTitle();
 
         assertEquals(expected, actual);
