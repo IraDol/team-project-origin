@@ -41,7 +41,7 @@ public class GameStoreTest {
         GameStore store = new GameStore();
         store.addPlayTime("Petr", 2);
         store.addPlayTime("Igor", 5);
-        store.addPlayTime("Ivan", 5);
+        store.addPlayTime("Ivan", 4);
         String expected = "Igor";
         String actual = store.getMostPlayer();
         assertEquals(expected, actual);
