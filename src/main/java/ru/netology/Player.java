@@ -66,7 +66,6 @@ public class Player {
                 gameGenre = game.getTitle();
             }
         }
-
             return gameGenre;
         }
     }

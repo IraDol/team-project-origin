@@ -16,6 +16,16 @@ public class GameStoreTest {
     }
 
     // другие ваши тесты
+
+    @Test
+    public void shouldReturnFalseWhenAddGames() {
+
+        GameStore store = new GameStore();
+        Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
+        Game game2 = new Game("шашки", "Стратегия", store);
+
+        assertFalse(store.containsGame(game2));
+    }
     @Test
     public void shouldAddOnePlayer() {
         GameStore store = new GameStore();
